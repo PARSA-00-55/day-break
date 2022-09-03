@@ -9,10 +9,13 @@
     <!-- tailwind & daisy-UI CDN link  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awsome icon -->
+    <script src="https://kit.fontawesome.com/ef6db34c7e.js" crossorigin="anonymous"></script>
     <!--CSS file link  -->
     <link rel="stylesheet" href="language/css/style.css">
     <!-- JS file link -->
     <script defer src="language/js/index.js"></script>
+    <script defer src="language/js/newsfeed.js"></script>
 </head>
 
 <body>
@@ -55,10 +58,56 @@
     </header>
     <!-- main section -->
     <main class="container mx-auto mt-2">
-            <!-- menu bar -->
-            <div id="menu-bar" class="bg-base-100 flex justify-around list-none">
-                    
+        <!-- menu bar -->
+        <div id="menu-bar" class="bg-base-100 flex justify-around flex-wrap list-none">
+        </div>
+        <!-- newsfeed -->
+        <section>
+            <div id="news-feed" class="w-4/5 mx-auto mt-8">
+                <div class="card lg:card-side bg-base-200 shadow-xl">
+                    <figure><img src="https://placeimg.com/400/400/arch" alt="Album"></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">New album is released!</h2>
+                        <p>Click the button to listen on Spotiwhy app. Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Illum praesentium debitis tempore explicabo error, quia repudiandae quibusdam voluptates
+                            eligendi odio totam, ad quod quidem earum ducimus sequi sit fuga ea iusto ab fugiat! Distinctio
+                            eum, nesciunt quisquam ab omnis sunt eos molestiae beatae exercitationem possimus excepturi
+                            itaque animi cupiditate? Delectus?</p>
+                        <!-- card bottom -->
+                        <div class="card-actions flex justify-between items-center">
+                            <!-- author section -->
+                            <div class="flex gap-4">
+                                <div class="avatar">
+                                    <div class="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        <img src="https://placeimg.com/192/192/people" />
+                                    </div>
+                                </div>
+                                <!-- author info -->
+                                <div>
+                                    <h4>jane Cooper</h4>
+                                    <p>Jan, 10, 2022</p>
+                                </div>
+                            </div>
+                            <!-- views section -->
+                            <div class="flex justify-between items-center gap-1">
+                                <i class="fa-solid fa-eye"></i>
+                                <p>400 view</p>
+                            </div>
+                            <!-- rateing -->
+                            <div class="rating rating-md">
+                                <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" />
+                              </div>
+                              <!-- read more button -->
+                            <button class="btn btn-primary">Read More</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
     </main>
 </body>
 
