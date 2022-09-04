@@ -27,6 +27,7 @@ const displayMenu = news =>{
 
 const newsIdLoad = async(newsId) =>{
   const url = `https://openapi.programming-hero.com/api/news/category/${newsId}`
+  // console.log(url)
   try{
   const res = await fetch(url);
   const data = await res.json();
@@ -34,22 +35,38 @@ const newsIdLoad = async(newsId) =>{
   }catch(error){
     console.log(error)
   }
-
-
-  console.log(data.data.length)
+  // console.log(data.data.length)
 }
 
+// items numbershow
+// const itemNumber = async(num) =>{
+//   const num = document.getElementById('item-number');
+
+// }
+
 const newsCard = async(items) =>{
+  console.log(items)
   const newsFeed = document.getElementById('news-feed');
   newsFeed.innerHTML = ``;
-  for(const item of items){
-    console.log(item)
+  
+  //if the category is empty
+  if(items.length === 0){
+    const notFound = document.createElement("div");
+    notFound.innerHTML = `
+    <h2 class="text-center text-5xl"> No Item Found. In this category</h2>
+    `
+    newsFeed.appendChild(notFound)
+    return
+  }
+  items.forEach(item =>{
+    // console.log(item)
+    const stringified = JSON.stringify(item)
     const newsDiv = document.createElement("div");
     newsDiv.innerHTML = `
     <div class="card lg:card-side bg-base-200 shadow-xl my-5">
                     <figure><img src="${item.thumbnail_url}" alt="Album"></figure>
                     <div class="card-body">
-                        <h2 class="card-title">${item.title}</h2>
+                        <h2 class="card-title">${item.title ? item.title : "Unknown Author"}</h2>
                         <p>${item.details.slice(0, 400) ? item.details.slice(0, 400)+"..." : ""}</p>
                         <!-- card bottom -->
                         <div class="card-actions flex justify-between items-center">
@@ -79,17 +96,22 @@ const newsCard = async(items) =>{
                                 <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" checked />
                                 <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" />
                               </div>
-                              <!-- read more button -->
-                            <button class="btn btn-primary">Read More</button>
+
+                              <label for="my-modal-3" onclick="" class="btn btn-primary modal-button">open modal</label>
+
                         </div>
                     </div>
                 </div>
     `
     newsFeed.appendChild(newsDiv);
-  }
+  })
 }
 
+
 loadMenubar()
+newsIdLoad('08')
+
+
 
 // const displayMenu = async(news) => {
 //   const data = await loadMenubar()
