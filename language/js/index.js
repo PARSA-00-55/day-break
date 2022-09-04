@@ -1,4 +1,4 @@
-
+//calling the API
 const loadMenubar = async () => {
   try{
     const res = await fetch(
@@ -11,6 +11,7 @@ const loadMenubar = async () => {
   }
 };
 
+//Menu bar
 const displayMenu = news =>{
   const menuCatagory = document.getElementById('menu-bar');
   news.forEach(element => {
@@ -23,6 +24,7 @@ const displayMenu = news =>{
   });
 }
 
+//dynamic API  create
 const newsIdLoad = async(newsId) =>{
   const url = `https://openapi.programming-hero.com/api/news/category/${newsId}`
   try{
@@ -47,9 +49,12 @@ const newsCard = async(items) =>{
     newsFeed.appendChild(notFound)
     return
   }
+
+  //news card section
   items.forEach(item =>{
 
     const stringified = JSON.stringify(item)
+    //news cards
     const newsDiv = document.createElement("div");
     newsDiv.innerHTML = `
     <div class="card lg:card-side bg-base-200 shadow-xl my-5">
@@ -96,7 +101,7 @@ const newsCard = async(items) =>{
   })
 }
 
-
+//common function call
 loadMenubar()
 newsIdLoad('08')
 
